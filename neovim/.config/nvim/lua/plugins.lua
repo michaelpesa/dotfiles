@@ -20,23 +20,36 @@ local custom_footer = {
 }
 
 return {
-  "tpope/vim-surround",
+  'tpope/vim-sleuth',
+  'tpope/vim-surround',
   'voldikss/vim-floaterm',
   {
-    "willothy/nvim-cokeline",
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup {
+        options = {
+          icons_enabled = true,
+          theme = 'palenight',
+        }
+      }
+    end
+  },
+  {
+    'willothy/nvim-cokeline',
     dependencies = {
-      "nvim-lua/plenary.nvim",        -- Required for v0.4.0+
-      "nvim-tree/nvim-web-devicons", -- If you want devicons
-      "stevearc/resession.nvim"       -- Optional, for persistent history
+      'nvim-lua/plenary.nvim',        -- Required for v0.4.0+
+      'nvim-tree/nvim-web-devicons', -- If you want devicons
+      'stevearc/resession.nvim'       -- Optional, for persistent history
     },
     config = true
   },
   {
-    "nvim-tree/nvim-tree.lua",
+    'nvim-tree/nvim-tree.lua',
     version = "*",
     lazy = false,
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
+      'nvim-tree/nvim-web-devicons',
     },
     config = function()
       require("nvim-tree").setup {}
@@ -72,7 +85,7 @@ return {
     ft = { "just" },
   },
   {
-    "folke/tokyonight.nvim",
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     opts = {},
