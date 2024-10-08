@@ -20,6 +20,7 @@ local custom_footer = {
 }
 
 return {
+  { "folke/neodev.nvim", opts = {} },
   'tpope/vim-sleuth',
   'tpope/vim-surround',
   'voldikss/vim-floaterm',
@@ -80,6 +81,31 @@ return {
     end,
     dependencies = { {'nvim-tree/nvim-web-devicons'} }
   },
+  {
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
+    opts = {
+      -- options
+    },
+  },
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+
+      -- Useful status updates for LSP
+      'j-hui/fidget.nvim',
+    },
+  },
+  { -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+  },
+  -- Fuzzy Finder (files, lsp, etc)
+  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } },
   {
     "NoahTheDuke/vim-just",
     ft = { "just" },
