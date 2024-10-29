@@ -44,6 +44,7 @@ local servers = {
   gopls = {},
   pyright = {},
   rust_analyzer = {},
+  zls = {},
   -- elmls = {},
 
   lua_ls = {
