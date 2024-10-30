@@ -112,7 +112,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR=nvim
-#export JAVA_HOME="/opt/homebrew/Cellar/openjdk/21.0.3/libexec/openjdk.jdk/Contents/Home"
 
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_ANALYTICS=1        # Disable Homebrew telemetry
@@ -149,7 +148,8 @@ alias ll='ls -lh'
 alias vi='nvim'
 alias k='kubectl'
 
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+[[ -f /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]] && source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+[[ -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]] && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
