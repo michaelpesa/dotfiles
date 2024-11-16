@@ -156,3 +156,5 @@ alias k='kubectl'
 
 # Krew kubectl plugin support
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+eval "$(fzf --zsh)"
