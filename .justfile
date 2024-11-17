@@ -1,4 +1,4 @@
-install: && build-bat-cache
+update: && build-bat-cache
   stow --verbose --target=$HOME --restow */
 
 build-bat-cache:
