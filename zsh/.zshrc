@@ -145,6 +145,7 @@ export NVM_DIR="$HOME/.nvm"
 
 alias ls='ls -G'
 alias ll='ls -lh'
+alias exa='exa --icons -l -a --git'
 alias vi='nvim'
 alias k='kubectl'
 
