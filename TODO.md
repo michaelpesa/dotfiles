@@ -9,6 +9,7 @@ Right now, the justfile for setting up these dotfiles only installs configuratio
 * fzf
 * jq
 * just
+* lazygit
 * lsd
 * neofetch
 * neovim
@@ -30,3 +31,7 @@ Right now, the justfile for setting up these dotfiles only installs configuratio
 ## Kubernetes
 * k9s
 * krew
+
+## Other (not packages)
+* fzf-git.sh
+* oh-my-zsh
