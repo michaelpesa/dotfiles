@@ -31,6 +31,7 @@ Right now, the justfile for setting up these dotfiles only installs configuratio
 ## Kubernetes
 * k9s
 * krew
+* kubecolor
 
 ## Other (not packages)
 * fzf-git.sh
