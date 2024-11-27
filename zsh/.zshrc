@@ -50,6 +50,7 @@ alias ls='lsd --long --git'
 alias vi='nvim'
 alias k='kubectl'
 
+# OS-specific settings
 case "$(uname)" in
   Darwin)
     source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
