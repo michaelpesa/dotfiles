@@ -42,10 +42,6 @@ if type ng &>/dev/null; then
   source <(ng completion script)
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 alias ls='lsd --long --git'
 alias vi='nvim'
 alias k='kubectl'
