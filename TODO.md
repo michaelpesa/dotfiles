@@ -14,13 +14,18 @@ Right now, the justfile for setting up these dotfiles only installs configuratio
 * neofetch
 * neovim
 * ripgrep
-* tre-command
-* ttf-meslo-nerd-font-powerlevel10k
-* wezterm-git
-* zsh
-* zsh-theme-powerlevel10k-git
+* wezterm
 
-## Language support
+## Shell stuff
+* zsh
+* fzf-git.sh
+* oh-my-zsh
+* ttf-meslo-nerd-font-powerlevel10k
+* zsh-autosuggestions
+* zsh-syntax-highlighting
+* zsh-theme-powerlevel10k
+
+## Language server support
 * clangd
 * clojure
 * go
@@ -28,11 +33,7 @@ Right now, the justfile for setting up these dotfiles only installs configuratio
 * zig
 * zls
 
-## Kubernetes
+## Kubernetes utilities
 * k9s
 * krew
 * kubecolor
-
-## Other (not packages)
-* fzf-git.sh
-* oh-my-zsh
