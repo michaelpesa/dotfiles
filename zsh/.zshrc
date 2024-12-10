@@ -43,6 +43,7 @@ if type ng &>/dev/null; then
 fi
 
 alias ls='lsd --long --git'
+alias cat='bat'
 alias vi='nvim'
 alias k='kubectl'
 
