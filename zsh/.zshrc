@@ -95,3 +95,7 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
+
+# kubectl autocompletion
+source <(kubectl completion zsh)
+compdef kubecolor=kubectl
