@@ -25,6 +25,10 @@ if [[ -d "$HOME/.bin" ]]; then
   export PATH="$HOME/.bin:$PATH"
 fi
 
+if [[ -d "$HOME/.cargo/bin" ]]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 # Enable Homebrew autocomplete functions
 if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
