@@ -32,15 +32,13 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-# Use color kubectl output if available
-if command -v kubecolor 2>&1 >/dev/null; then
-  alias kubectl=kubecolor
-fi
-
 # Load Angular CLI autocompletion.
 if type ng &>/dev/null; then
   source <(ng completion script)
 fi
+
+# Use Emacs keybindings
+set -o emacs
 
 alias ls='lsd --long --git'
 alias cat='bat'
@@ -63,9 +61,6 @@ esac
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Krew kubectl plugin support
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 eval "$(fzf --zsh)"
 source ~/Developer/fzf-git.sh/fzf-git.sh
@@ -96,6 +91,17 @@ _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
 
-# kubectl autocompletion
-source <(kubectl completion zsh)
-compdef kubecolor=kubectl
+# Kubernetes settings
+if command -v kubectl 2>&1 >/dev/null; then
+  # Krew kubectl plugin support
+  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+  # Use color kubectl output if available
+  if command -v kubecolor 2>&1 >/dev/null; then
+    alias kubectl=kubecolor
+  fi
+
+  # Enable kubectl autocompletion
+  source <(kubectl completion zsh)
+  compdef kubecolor=kubectl
+fi
