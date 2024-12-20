@@ -5,15 +5,23 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# oh-my-zsh configuration.
-export ZSH="$HOME/.oh-my-zsh"
-if [[ "$(uname)" = "Darwin" ]]; then
-  plugins=(macos git)
-else
-  plugins=(git)
+# Set home directory for zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+if [ ! -d "$ZINIT_HOME" ]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone 'https://github.com/zdharma-continuum/zinit.git' "$ZINIT_HOME"
 fi
 
-source $ZSH/oh-my-zsh.sh
+source "${ZINIT_HOME}/zinit.zsh"
+
+#zinit light zdharma-continuum/zinit-annex-bin-gem-node
+#zinit light zinit-zsh/z-a-patch-dl
+
+zinit ice depth=1; zinit load romkatv/powerlevel10k
+zinit load zsh-users/zsh-syntax-highlighting
+zinit load zsh-users/zsh-completions
+zinit load zsh-users/zsh-autosuggestions
 
 export EDITOR=nvim
 export HOMEBREW_NO_ENV_HINTS=1
@@ -48,20 +56,6 @@ alias ls='lsd --long --git'
 alias cat='bat'
 alias vi='nvim'
 alias k='kubectl'
-
-# OS-specific settings
-case "$(uname)" in
-  Darwin)
-    source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    ;;
-  Linux)
-    source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    ;;
-esac
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
