@@ -1,0 +1,21 @@
+super + Return
+  kitty
+
+super + f
+  firefox
+
+super + Escape
+  pkill -USR1 -x sxhkd
+
+# bspwm hotkeys
+super + alt + {q,r}
+  bspc {quit,wm -r}
+
+super + q
+  bspc node -{c,k}
+
+super + {1-9,0}
+  bspc desktop -f '^{1-9,10}'
+
+super + shift {1-9,0}
+  id=$(bspc query -N -n); bspc node -d ^{1-9,10}; bspc node -f ${id}
